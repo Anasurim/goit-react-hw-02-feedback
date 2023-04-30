@@ -7,23 +7,55 @@ class Feedback extends React.Component {
     bad: 0,
   };
 
+  handleGood = () => {
+    this.setState(prev => {
+      return { good: prev.good + 1 };
+    });
+  };
+
+  handleNeutral = () => {
+    this.setState(prev => {
+      return { neutral: prev.neutral + 1 };
+    });
+  };
+
+  handleBad = () => {
+    this.setState(prev => {
+      return { bad: prev.bad + 1 };
+    });
+  };
+
   render() {
+    const { good, neutral, bad } = this.state;
+
     return (
       <>
         <h3>Please leave eedback</h3>
 
-        <button type="button">good</button>
+        <button type="button" onClick={this.handleGood}>
+          good
+        </button>
 
-        <button type="button">neutral</button>
+        <button type="button" onClick={this.handleNeutral}>
+          neutral
+        </button>
 
-        <button type="button">bad</button>
+        <button type="button" onClick={this.handleBad}>
+          bad
+        </button>
 
         <h2>Statistics</h2>
 
         <ul>
-          <li>Good</li>
-          <li>Neutral</li>
-          <li>bad</li>
+          <li>
+            Good: <span>{good}</span>
+          </li>
+          <li>
+            Neutral: <span>{neutral}</span>
+          </li>
+          <li>
+            Bad: <span>{bad}</span>
+          </li>
         </ul>
       </>
     );
