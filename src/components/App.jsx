@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Section } from './Section/Section';
 import { Notification } from './Notification/Notification';
 import { Statistics } from './Statistics/Statistics';
@@ -61,3 +62,9 @@ export class App extends Component {
     );
   }
 }
+
+App.propTypes = {
+  good: PropTypes.number,
+  bad: PropTypes.number,
+  neutral: PropTypes.number,
+};
